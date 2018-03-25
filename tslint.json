@@ -1,5 +1,6 @@
 {
     "extends": ["tslint-react"],
+    "defaultSeverity": "warning",
     "rules": {
         "align": [
             true,
@@ -86,7 +87,7 @@
         ],
         "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
         "whitespace": [
-            true,
+            false,
             "check-branch",
             "check-decl",
             "check-module",
