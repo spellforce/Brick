@@ -2,13 +2,13 @@ import {Config} from './define';
 declare const require: any;
 import {createStore,combineReducers,applyMiddleware} from 'redux';
 import createSagaMiddleware from 'redux-saga'
-import {BrickPlugin, BrickStore} from './model';
+import {BrickPlugin, BrickPlugins} from './model';
 import thunk from 'redux-thunk';
 import {fork} from 'redux-saga/effects';
 import any = jasmine.any;
 // let Actions:{[key:string]:BrickStore} = {};
-export let PluginClasses:{[key:string]:BrickStore} = {};
-export let Actions:{[key:string]:BrickStore} = {};
+export let PluginClasses:{[key:string]:BrickPlugins} = {};
+export let Actions:{[key:string]:BrickPlugins} = {};
 export class BrickMain {
     /*暴露给下面调用的*/
     // actions:{[key:string]:BrickStore} = {};

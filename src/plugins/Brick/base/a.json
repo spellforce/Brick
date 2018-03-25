@@ -1,0 +1,16 @@
+[
+  {
+    "name": "a",
+    "category": "base",
+    "props": {
+      "href": "#"
+    },
+    "children": [
+      {
+        "name": "span",
+        "category": "base",
+        "text": "Link text"
+      }
+    ]
+  }
+]

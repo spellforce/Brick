@@ -7,7 +7,7 @@ import * as actions from './action';
 import * as reducers from './reducer';
 import * as sagas from './saga';
 import {bindActionCreators} from 'redux';
-import {BrickPlugin, BrickTool,BrickStore} from '../../model';
+import {BrickPlugin} from '../../model';
 import './index.css';
 class AppContainer extends React.PureComponent<any>{
     constructor(props){

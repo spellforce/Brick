@@ -8,16 +8,25 @@ export class BaseBrick{
     /*真实类*/
     class:any;
     /*组件名*/
-    type:string;
+    name:string;
+    /*类型*/
+    type:'base'|'component'|'container';
     /*组件属性*/
     props:string;
     children:BaseBrick[];
 }
+export class BrickCategory{
+    button:string = 'button';
+    other:string = 'other';
+    layout:string = 'layout';
+}
 /*组件数据库*/
 export class Brick extends BaseBrick{
-    brickId?:string;
-    path?:any;
-    namespace?:any;
+    brickId?:string;/*div等基础组件没有*/
+    path?:any;/*自制组件才有*/
+    namespace?:any;/*node_model 组件才有*/
+    /*分类*/
+    category:BrickCategory;
 }
 
 export class InstanceStore {
@@ -26,10 +35,13 @@ export class InstanceStore {
     children:InstanceStore[] | BaseBrick[];
 }
 
+export interface BaseStore{
+    tools:any
+}
 
-export interface BrickStore{
+export interface BrickPlugins{
     Viewport:any,
-    AppContainer:any
+    AppContainer:any,
 }
 
 export interface BrickPlugin{
