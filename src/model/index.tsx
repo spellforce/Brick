@@ -12,8 +12,8 @@ export class BaseBrick{
     /*类型*/
     type:'base'|'component'|'container';
     /*组件属性*/
-    props:string;
-    children:BaseBrick[];
+    props:any;
+    children:BaseBrick[] | string;
 }
 export class BrickCategory{
     button:string = 'button';
@@ -55,7 +55,7 @@ export interface BrickPlugin{
 
 export interface BrickTool{
     position:any,
-    type:any,
+    type?:any,
     icon:any
 }
 

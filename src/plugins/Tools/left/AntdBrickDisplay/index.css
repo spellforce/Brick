@@ -1,4 +1,4 @@
-.brickContainer > .content > .viewport{
+.terminator > .content > .viewport{
     display: flex;
     flex-grow: 1;
     margin: 4px;
@@ -10,7 +10,7 @@
     height: 100%;
     padding: 10px;
 }
-.brickContainer > .content  .zx-draggable{
+.terminator > .content  .zx-draggable{
     /*border: 1px solid red;*/
 }
 /*.terminator > .content  .zx-draggable:hover{*/

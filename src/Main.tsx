@@ -7,8 +7,8 @@ import thunk from 'redux-thunk';
 import {fork} from 'redux-saga/effects';
 import any = jasmine.any;
 // let Actions:{[key:string]:BrickStore} = {};
-export let PluginClasses:{[key:string]:BrickPlugins} = {};
-export let Actions:{[key:string]:BrickPlugins} = {};
+export let PluginClasses = {} as BrickPlugins;
+export let Actions = {} as BrickPlugins;
 export class BrickMain {
     /*暴露给下面调用的*/
     // actions:{[key:string]:BrickStore} = {};

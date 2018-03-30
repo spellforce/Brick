@@ -1,15 +1,16 @@
 [
   {
-    "name": "a",
-    "category": "base",
+    "class": "a",
+    "type": "base",
     "props": {
       "href": "#"
     },
     "children": [
       {
-        "name": "span",
-        "category": "base",
-        "text": "Link text"
+        "class": "span",
+        "type": "base",
+        "props": {},
+        "children": "Link text"
       }
     ]
   }
