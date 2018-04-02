@@ -10,6 +10,8 @@ import * as sagas from './saga';
 import * as reducers from './reducer';
 import * as actions from './action';
 import {BrickPlugin} from '../../model';
+import ConnectedEditHelper from './editHelper';
+import {bindActionCreators} from 'redux';
 
 class Viewport extends React.Component<any> {
     // helper = null;
@@ -22,7 +24,7 @@ class Viewport extends React.Component<any> {
      * 获取自己的实例
      */
     public getRef = (ref: React.ReactInstance) => {
-        // this.props.dispatch({type:Constants.SET_VIEWPORT_DOM,value:ReactDOM.findDOMNode(ref) as HTMLElement});
+        this.props.setViewprotRoot(ReactDOM.findDOMNode(ref) as HTMLElement);
         // console.info('ref',ref);
         // this.props.actions.registerInnerDrag(ref)
     };
@@ -51,7 +53,7 @@ class Viewport extends React.Component<any> {
         return (
             <div className="viewport" onMouseLeave={this.handleMouseLeave}>
                 <div className="viewport_root" ref={this.getRef} id="zx_root">
-
+                    <ConnectedEditHelper />
                 </div>
                 {/*{this.props.actions.loadNoPositionPlugins()}*/}
             </div>
@@ -59,8 +61,15 @@ class Viewport extends React.Component<any> {
     }
 }
 
+function mapStateToProps(state) :any{
+    return state;
+}
+const containerActions = (dispatch) => bindActionCreators({
+    ...actions,
+}, dispatch);
+
 export default {
-    class: connect((state)=>{return state})(Viewport),
+    class: connect(mapStateToProps,containerActions)(Viewport),
     actions,
     reducers,
     sagas,

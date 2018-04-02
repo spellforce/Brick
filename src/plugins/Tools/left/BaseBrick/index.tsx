@@ -10,10 +10,12 @@ import Icon from 'antd/lib/icon';
 import * as sagas from './saga';
 import * as reducers from './reducer';
 import * as actions from './action';
-import {Brick, BrickPlugin, BrickTool} from '../../../../model';
-import {brickCreateElement} from '../../../../Utils';
-const a:Brick = require('../../../Brick/base/a.json');
-
+import {Brick, BrickPlugin, BrickTool} from 'brick-model';
+import {brickCreateElement} from 'brick-utils';
+import {Config} from 'brick-define';
+import * as path from "path";
+const a:Brick = require('.brick/lib/a.json');
+// alert(Config.brickDir + '/lib/a.json');
 export class AntdIcon extends React.Component{
     render(){
         return (

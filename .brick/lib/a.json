@@ -1,0 +1,17 @@
+[
+  {
+    "class": "a",
+    "type": "base",
+    "props": {
+      "href": "#"
+    },
+    "children": [
+      {
+        "class": "span",
+        "type": "base",
+        "props": {},
+        "children": "Link text"
+      }
+    ]
+  }
+]

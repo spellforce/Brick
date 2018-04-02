@@ -3,7 +3,7 @@ import {BrickActions} from './action';
 import {connect} from 'react-redux';
 import * as AppActions from '../plugins/AppContainer/action';
 import {Position} from '../define';
-
+import * as _ from 'lodash';
 export class BaseBrick{
     /*真实类*/
     class:any;
@@ -29,12 +29,17 @@ export class Brick extends BaseBrick{
     category:BrickCategory;
 }
 
-export class InstanceStore {
-    instanceId:string;
-    brickId:string;
-    children:InstanceStore[] | BaseBrick[];
+export class ViewStore extends Brick{
+    viewId:string = _.uniqueId('brick');
 }
-
+export class ViewportStore{
+    public viewportRoot: ViewStore = null;
+    rootInstanceId: string;
+    views:ViewStore;
+    currentHoverId:string;
+    currentEditId:string;
+    currentDrag:ViewStore
+}
 export interface BaseStore{
     tools:any
 }
