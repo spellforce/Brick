@@ -7,6 +7,7 @@ export function brickCreateElement(brick:Brick){
     if(brick.type==='base'){
         // console.log('brickCreateElement1',brick);
         // console.log(typeof brick.children);
+        childs = brick.children;
         if(typeof brick.children === 'object') {
             let children = brick.children as any;
             childs = children.map((item: Brick, key) => {
@@ -16,8 +17,6 @@ export function brickCreateElement(brick:Brick){
                 return brickCreateElement(item);
             });
             // console.log(childs)
-        }else {
-            childs = brick.children;
         }
         return createElement(brick.class,brick.props,childs);
         // return createElement('a',{href:'#'},'xxxx');

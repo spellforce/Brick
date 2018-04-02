@@ -29,16 +29,17 @@ export class Brick extends BaseBrick{
     category:BrickCategory;
 }
 
-export class ViewStore extends Brick{
-    viewId:string = _.uniqueId('brick');
+export class BrickView extends Brick{
+    viewId:number[];
 }
+
 export class ViewportStore{
-    public viewportRoot: ViewStore = null;
-    rootInstanceId: string;
-    views:ViewStore;
+    public viewportRoot: HTMLElement = null;
+    rootBrickView: BrickView;
+    brickView:BrickView;
     currentHoverId:string;
     currentEditId:string;
-    currentDrag:ViewStore
+    currentDrag:BrickView
 }
 export interface BaseStore{
     tools:any

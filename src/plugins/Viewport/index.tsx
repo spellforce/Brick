@@ -51,10 +51,8 @@ class Viewport extends React.Component<any> {
 
     render(){
         return (
-            <div className="viewport" onMouseLeave={this.handleMouseLeave}>
-                <div className="viewport_root" ref={this.getRef} id="zx_root">
-                    <ConnectedEditHelper />
-                </div>
+            <div className="viewport" onMouseLeave={this.handleMouseLeave} ref={this.getRef}>
+                    <ConnectedEditHelper brickViewId={[0]} />
                 {/*{this.props.actions.loadNoPositionPlugins()}*/}
             </div>
         )

@@ -1,14 +1,13 @@
 .brickContainer > .content > .viewport{
     display: flex;
     flex-grow: 1;
-    margin: 4px;
     background: #fff;
     position: relative;
+    margin: 10px;
 }
 .viewport_root{
     width: 100%;
     height: 100%;
-    padding: 10px;
 }
 .brickContainer > .content  .zx-draggable{
     /*border: 1px solid red;*/
