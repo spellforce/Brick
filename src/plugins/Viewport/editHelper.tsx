@@ -25,7 +25,7 @@ class EditHelper extends React.Component<any> {
     /**
      * 组件实例的信息
      */
-    private instanceInfo: any
+    private instanceInfo: any = null;
 
     /**
      * 当前组件 dom 对象
@@ -51,8 +51,9 @@ class EditHelper extends React.Component<any> {
         }
     };
     public componentWillMount() {
+        if(this.props.viewport.brickView)
         this.instanceInfo = this.getInstanceInfo(this.props.viewport.brickView.children,this.props.brickViewId);
-        console.log(this.instanceInfo)
+        console.log('instanceInfo',this.instanceInfo)
         // this.componentClass = this.props.actions.ApplicationAction.getComponentClassByKey(this.instanceInfo.gaeaKey)
     }
 
@@ -111,25 +112,31 @@ class EditHelper extends React.Component<any> {
 
     public render() {
         // 子元素
-        let childs: Array<React.ReactElement<any>> = null;
-        if(typeof this.instanceInfo.children === 'string'){
-            childs = this.instanceInfo.children;
+        if(this.props.viewport.brickView)
+            this.instanceInfo = this.getInstanceInfo(this.props.viewport.brickView.children,this.props.brickViewId);
+        if(this.instanceInfo) {
+            let children: Array<React.ReactElement<any>> = null;
+            if (typeof this.instanceInfo.children === 'string') {
+                children = this.instanceInfo.children;
+            } else {
+                children = this.instanceInfo.children.map(item => {
+                    return (
+                        <ConnectedEditHelper key={item.viewId} brickViewId={item.viewId}/>
+                    )
+                });
+            }
+
+            console.log('children', children);
+            // const wrapProps: any = _.merge({}, this.defaultProps, { ...this.instanceInfo.data.props }, {
+            //     ref: (ref: React.ReactInstance) => {
+            //         this.wrappedInstance = ref
+            //     }
+            // });
+
+            return React.createElement(this.instanceInfo.class, this.instanceInfo.props, children)
         }else {
-            childs = this.instanceInfo.children.map(item => {
-                return (
-                    <ConnectedEditHelper key={item.viewId} brickViewId={item.viewId} />
-                )
-            });
+            return null;
         }
-
-        console.log('childs',childs);
-        // const wrapProps: any = _.merge({}, this.defaultProps, { ...this.instanceInfo.data.props }, {
-        //     ref: (ref: React.ReactInstance) => {
-        //         this.wrappedInstance = ref
-        //     }
-        // });
-
-        return React.createElement(this.instanceInfo.class, this.instanceInfo.props, childs)
     }
 }
 

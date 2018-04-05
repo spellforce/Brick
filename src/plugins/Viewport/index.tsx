@@ -20,13 +20,10 @@ class Viewport extends React.Component<any> {
         // this.helper = new Helper({...this.props,...this.state});
     }
 
-    /**
-     * 获取自己的实例
-     */
+    viewprotInstance;
+
     public getRef = (ref: React.ReactInstance) => {
-        this.props.setViewprotRoot(ReactDOM.findDOMNode(ref) as HTMLElement);
-        // console.info('ref',ref);
-        // this.props.actions.registerInnerDrag(ref)
+        this.viewprotInstance = ReactDOM.findDOMNode(ref) as HTMLElement
     };
     /**
      * 鼠标移开视图区域
@@ -43,6 +40,7 @@ class Viewport extends React.Component<any> {
 
     public componentDidMount() {
         console.log('Viewport componentDidMount');
+        this.props.init(this.viewprotInstance);
         // console.log(new Button({type:'danger'}))
         // console.log((
         //     <Button />

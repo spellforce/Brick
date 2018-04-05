@@ -36,7 +36,7 @@ export class BrickView extends Brick{
 export class ViewportStore{
     public viewportRoot: HTMLElement = null;
     rootBrickView: BrickView;
-    brickView:BrickView;
+    brickView:BrickView = null;
     currentHoverId:string;
     currentEditId:string;
     currentDrag:BrickView

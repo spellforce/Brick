@@ -74,9 +74,8 @@ export class BrickMain {
         // Terminator.log(this.plugins);
         // this.addRenders();
         function* mainSaga(){
-            // console.log(sagas);
-            for(let saga of sagas){
-                yield fork(saga);
+            for(let i in sagas){
+                yield fork(sagas[i]);
             }
         }
 
